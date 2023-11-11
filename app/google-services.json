@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "244189016114",
+    "project_id": "ionicfirebase-df877",
+    "storage_bucket": "ionicfirebase-df877.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244189016114:android:2d6f12d974703c38a28c2b",
+        "android_client_info": {
+          "package_name": "com.local.proyectofinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkXiKSRAMYpcmCO_CNZFqsmS-uYqUJbxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

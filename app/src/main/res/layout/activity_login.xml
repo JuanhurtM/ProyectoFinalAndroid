@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -20,18 +20,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnLogin"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="Iniciar Sesion" />
+
+        <EditText
+            android:id="@+id/editTextLoginCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="Ir_A_Login"
+            android:ems="10"
+            android:hint="Correo"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnSingIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Iniciar Sesion" />
 
         <Button
-            android:id="@+id/btnRegistra"
+            android:id="@+id/btnLoginVolver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="Ir_A_Registrarse"
-            android:text="Registrarse" />
+            android:onClick="Ir_A_Main"
+            android:text="Volver" />
+
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

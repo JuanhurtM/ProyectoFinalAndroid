@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".IndexActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -20,18 +20,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnLogin"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="Ir_A_Login"
-            android:text="Iniciar Sesion" />
+            android:layout_height="36dp"
+            android:text="INDEX" />
 
-        <Button
-            android:id="@+id/btnRegistra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="Ir_A_Registrarse"
-            android:text="Registrarse" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
