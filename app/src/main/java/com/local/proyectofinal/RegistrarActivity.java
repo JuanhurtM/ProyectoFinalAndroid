@@ -115,6 +115,7 @@ public class RegistrarActivity extends AppCompatActivity {
     public void Ir_A_Main(View v){
         Intent i = new Intent(RegistrarActivity.this , MainActivity.class);
         startActivity(i);
+        finish();
     }
 
 }

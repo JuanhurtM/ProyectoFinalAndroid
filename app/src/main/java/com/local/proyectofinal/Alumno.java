@@ -9,7 +9,7 @@ public class Alumno implements Serializable {
     private String nombre;
     private String padre;
 
-    public Alumno(String carril, String grado, String nombre, String padre) {
+    public Alumno() {
         this.carril = carril;
         this.grado = grado;
         this.nombre = nombre;

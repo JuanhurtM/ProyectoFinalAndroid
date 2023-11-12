@@ -21,6 +21,9 @@ public class Padre implements Serializable {
         this.telefono = telefono;
     }
 
+    public Padre() {
+    }
+
     //Gets and Sets
     public String getCarril() {
         return carril;

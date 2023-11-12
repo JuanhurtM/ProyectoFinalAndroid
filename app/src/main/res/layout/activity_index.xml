@@ -24,7 +24,91 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="36dp"
-            android:text="INDEX" />
+            android:text="INICIO" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="166dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAlumnos"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Alumnos"
+                app:icon="@drawable/ic_school"
+                app:iconGravity="textEnd"/>
+
+            <Button
+                android:id="@+id/btnSingOut"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="Ir_A_Main"
+                android:text="Salir"
+                app:icon="@drawable/ic_exit"
+                app:iconGravity="textEnd"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/carril1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Carril 1"
+                android:onClick="carril_1"
+                app:icon="@drawable/ic_carril"/>
+
+            <Button
+                android:id="@+id/carril2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Carril 2"
+                android:onClick="carril_2"
+                app:icon="@drawable/ic_carril"/>
+
+            <Button
+                android:id="@+id/carril3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Carril 3"
+                android:onClick="carril_3"
+                app:icon="@drawable/ic_carril"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnLlegue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Llegue"
+            app:icon="@drawable/ic_baseline"
+            app:iconGravity="textEnd"/>
+
+
+
+        <Button
+            android:id="@+id/btnListo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Listo"
+            app:icon="@drawable/ic_check_circle"
+            app:iconGravity="textEnd"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="148dp"
+            android:text="TextView" />
 
     </LinearLayout>
 

@@ -17,39 +17,55 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/Test"
+            android:layout_width="match_parent"
+            android:layout_height="193dp"
+            android:text="Registrar Alumno" />
 
         <EditText
-            android:id="@+id/editTextNombre"
+            android:id="@+id/editTextNombreAlumno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nombre"
             android:inputType="text" />
 
-        <RadioGroup
+        <EditText
+            android:id="@+id/editTextGrado"
             android:layout_width="match_parent"
-            android:layout_height="136dp">
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Grado"
+            android:inputType="text" />
 
-            <RadioButton
-                android:id="@+id/RadioPrimaria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Primaria" />
 
-            <RadioButton
-                android:id="@+id/RadioBachillerato"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bachillerato" />
+        <Button
+            android:id="@+id/btnRegUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar"
+            app:icon="@drawable/ic_save"
+            app:iconGravity="textEnd"/>
 
-            <RadioButton
-                android:id="@+id/RadioPrescolar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Prescolar" />
-        </RadioGroup>
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="Ir_A_Index"
+            android:text="Volver" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

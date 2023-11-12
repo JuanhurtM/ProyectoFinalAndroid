@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void singIn(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        String Email, Password, Nombre, Cedula, Telefono;
+        String Email, Password;
 
         Email = EdtEmail.getText().toString().trim();
         Password = EdtPassword.getText().toString().trim();
@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Ingrese todos los datos para el ingreso", Toast.LENGTH_SHORT).show();
             return;
         }
-
 
         db.collection("padres")
                 .whereEqualTo("correo", Email)
@@ -68,11 +67,13 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                                         Padre padre = documentSnapshot.toObject(Padre.class);
-
+                                        String id = documentSnapshot.getId();
                                         // Envia el objeto Padre a IndexActivity
                                         Intent intent = new Intent(LoginActivity.this, IndexActivity.class);
                                         intent.putExtra("padre", padre);
+                                        intent.putExtra("id", id);
                                         startActivity(intent);
+
                                         Toast.makeText(LoginActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -88,8 +89,11 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
     }
+
+
     public void Ir_A_Main(View v){
         Intent i = new Intent(LoginActivity.this , MainActivity.class);
         startActivity(i);
+        finish();
     }
 }
