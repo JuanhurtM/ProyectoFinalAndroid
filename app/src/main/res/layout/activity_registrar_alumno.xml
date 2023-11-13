@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrarAlumnoActivity">
+    tools:context=".RegistrarAlumnoActivity"
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -25,45 +26,65 @@
         <TextView
             android:id="@+id/Test"
             android:layout_width="match_parent"
-            android:layout_height="193dp"
-            android:text="Registrar Alumno" />
+            android:layout_height="58dp"
+            android:text="Registrar Alumno"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:textStyle="bold"/>
 
-        <EditText
-            android:id="@+id/editTextNombreAlumno"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nombre"
-            android:inputType="text" />
+            android:layout_height="145dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editTextGrado"
+            <Button
+                android:id="@+id/btnVolver"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:onClick="Ir_A_Index"
+                android:text="Incio"
+                app:icon="@drawable/ic_home"
+                app:iconGravity="textEnd"/>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Salir"
+                app:icon="@drawable/ic_exit"
+                app:iconGravity="textEnd" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Grado"
-            android:inputType="text" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <EditText
+                android:id="@+id/editTextNombreAlumno"
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="text" />
 
-        <Button
-            android:id="@+id/btnRegUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registrar"
-            app:icon="@drawable/ic_save"
-            app:iconGravity="textEnd"/>
+            <EditText
+                android:id="@+id/editTextGrado"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:ems="10"
+                android:hint="Grado"
+                android:inputType="text" />
 
-        <Button
-            android:id="@+id/btnVolver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="Ir_A_Index"
-            android:text="Volver" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/btnRegUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registrar"
+                app:icon="@drawable/ic_save"
+                app:iconGravity="textEnd" />
+        </LinearLayout>
 
 
     </LinearLayout>

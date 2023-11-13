@@ -38,19 +38,18 @@ public class RegistrarAlumnoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_alumno);
 
-        String carrilPadre = getIntent().getStringExtra("carrilPadre");
         String nombrePadre = getIntent().getStringExtra("nombrePadre");
 
         EdtNombre = findViewById(R.id.editTextNombreAlumno);
         EdtGrado = findViewById(R.id.editTextGrado);
 
         Text = findViewById(R.id.Test);
-        TexArea = findViewById(R.id.textView2);
+
 
         BtnRegistrar = findViewById(R.id.btnRegUsuario);
         BtnVolver = findViewById(R.id.btnVolver);
 
-        BtnRegistrar.setOnClickListener(view -> registrarAlumno(carrilPadre, nombrePadre));
+        BtnRegistrar.setOnClickListener(view -> registrarAlumno(nombrePadre));
         BtnVolver.setOnClickListener(view -> volver());
 
 
@@ -63,69 +62,76 @@ public class RegistrarAlumnoActivity extends AppCompatActivity {
 
     }
 
-    public void registrarAlumno(String Carril, String NombrePadre) {
+    public void registrarAlumno( String NombrePadre) {
         String Nombre, Grado, carril, padre;
 
         Nombre = EdtNombre.getText().toString();
         Grado = EdtGrado.getText().toString();
-        carril = Carril;
+        carril = "0";
         padre = NombrePadre;
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        if (Nombre.isEmpty() || carril.isEmpty() || padre.isEmpty() || Grado.isEmpty()) {
+        if (Nombre.isEmpty() || Grado.isEmpty()) {
             Toast.makeText(this, "Ingrese todos los datos para el registro", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        }else {
+            if(Grado.equals("primaria") || !Grado.equals("primaria") || !Grado.equals("primaria")){
+                Map<String, Object> datos = new HashMap<>();
 
-        Map<String, Object> datos = new HashMap<>();
+                datos.put("carril", carril);
+                datos.put("grado", Grado);
+                datos.put("nombre", Nombre);
+                datos.put("padre", padre);
 
-        datos.put("carril", carril);
-        datos.put("grado", Grado);
-        datos.put("nombre", Nombre);
-        datos.put("padre", padre);
-
-        db.collection("alumnos")
-                .add(datos)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        // En el éxito, puedes obtener el ID del documento recién creado
-                        String documentId = documentReference.getId();
-                        DocumentReference docRef = db.collection("alumnos").document(documentId);
-                        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                db.collection("alumnos")
+                        .add(datos)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        Alumno alumno = document.toObject(Alumno.class);
-                                        String id = document.getId();
-                                        Intent i = new Intent(RegistrarAlumnoActivity.this , IndexActivity.class);
-                                        i.putExtra("idAlumno",id);
-                                        i.putExtra("alumno", alumno);
-                                        startActivity(i);
-                                        finish();
-                                    } else {
-                                        Log.d(TAG, "No such document");
+                            public void onSuccess(DocumentReference documentReference) {
+                                // En el éxito, puedes obtener el ID del documento recién creado
+                                String documentId = documentReference.getId();
+                                DocumentReference docRef = db.collection("alumnos").document(documentId);
+                                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot document = task.getResult();
+                                            if (document.exists()) {
+                                                Alumno alumno = document.toObject(Alumno.class);
+                                                String id = document.getId();
+                                                String PadreAlumno = document.getString("padre");
+                                                Intent i = new Intent(RegistrarAlumnoActivity.this , IndexActivity.class);
+                                                i.putExtra("idAlumno",id);
+                                                i.putExtra("alumno", alumno);
+                                                i.putExtra("NombrePadre", PadreAlumno);
+                                                i.putExtra("padre", PadreAlumno);
+                                                startActivity(i);
+                                                finish();
+                                            } else {
+                                                Log.d(TAG, "No such document");
+                                            }
+                                        } else {
+                                            Log.d(TAG, "get failed with ", task.getException());
+                                        }
                                     }
-                                } else {
-                                    Log.d(TAG, "get failed with ", task.getException());
-                                }
+                                });
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
+                                TexArea.setText("Error al agregar el documento");
                             }
                         });
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                        TexArea.setText("Error al agregar el documento");
-                    }
-                });
+            }else {
+                Toast.makeText(this, "El grado de su hijo no coincide deben ser (primaria, bachillerato, prescolar)", Toast.LENGTH_SHORT).show();
+            }
+        }
+
     }
 
 
 
-}
+}//No borrar
 

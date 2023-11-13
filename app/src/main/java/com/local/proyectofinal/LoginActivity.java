@@ -68,10 +68,12 @@ public class LoginActivity extends AppCompatActivity {
                                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                                         Padre padre = documentSnapshot.toObject(Padre.class);
                                         String id = documentSnapshot.getId();
+                                        String nombrePadre = documentSnapshot.getString("nombre");
                                         // Envia el objeto Padre a IndexActivity
                                         Intent intent = new Intent(LoginActivity.this, IndexActivity.class);
-                                        intent.putExtra("padre", padre);
+                                        //intent.putExtra("padre", padre);
                                         intent.putExtra("id", id);
+                                        intent.putExtra("padre", nombrePadre);
                                         startActivity(intent);
 
                                         Toast.makeText(LoginActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
