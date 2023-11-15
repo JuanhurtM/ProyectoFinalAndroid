@@ -30,7 +30,7 @@ public class RegistrarAlumnoActivity extends AppCompatActivity {
 
     TextView Text, TexArea;
     EditText EdtNombre, EdtGrado;
-    Button BtnRegistrar, BtnVolver;
+    Button BtnRegistrar, BtnVolver, BtnSalir;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -48,18 +48,28 @@ public class RegistrarAlumnoActivity extends AppCompatActivity {
 
         BtnRegistrar = findViewById(R.id.btnRegUsuario);
         BtnVolver = findViewById(R.id.btnVolver);
+        BtnSalir = findViewById(R.id.button2);
 
         BtnRegistrar.setOnClickListener(view -> registrarAlumno(nombrePadre));
-        BtnVolver.setOnClickListener(view -> volver());
+        BtnVolver.setOnClickListener(view -> volver(nombrePadre));
+
 
 
     }
-    public void volver(){
+    public void volver(String padre){
 
         Intent i = new Intent(RegistrarAlumnoActivity.this , IndexActivity.class);
+        i.putExtra("padre", padre);
         startActivity(i);
         finish();
 
+    }
+
+    public void salir(){
+        Intent i = new Intent(RegistrarAlumnoActivity.this , MainActivity.class);
+
+        startActivity(i);
+        finish();
     }
 
     public void registrarAlumno( String NombrePadre) {

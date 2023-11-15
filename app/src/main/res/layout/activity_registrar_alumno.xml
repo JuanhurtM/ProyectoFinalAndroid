@@ -30,7 +30,8 @@
             android:text="Registrar Alumno"
             android:textSize="25sp"
             android:gravity="center"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
                 android:id="@+id/btnVolver"
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
-                android:onClick="Ir_A_Index"
+                android:onClick="volver"
                 android:text="Incio"
                 app:icon="@drawable/ic_home"
                 app:iconGravity="textEnd"/>
@@ -52,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Salir"
+                android:onClick="salir"
                 app:icon="@drawable/ic_exit"
                 app:iconGravity="textEnd" />
         </LinearLayout>
@@ -67,7 +69,9 @@
                 android:layout_height="66dp"
                 android:ems="10"
                 android:hint="Nombre"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black" />
 
             <EditText
                 android:id="@+id/editTextGrado"
@@ -75,7 +79,9 @@
                 android:layout_height="64dp"
                 android:ems="10"
                 android:hint="Grado"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black" />
 
             <Button
                 android:id="@+id/btnRegUsuario"

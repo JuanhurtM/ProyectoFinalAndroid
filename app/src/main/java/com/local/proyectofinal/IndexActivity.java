@@ -39,7 +39,6 @@ public class IndexActivity extends AppCompatActivity {
     Button BtnAlumno, BtnSalir, BtnListo, BtnLlegue, BtnCarril1, BtnCarril2, BtnCarril3;
     String nombrePadreLogin;
     TextView TextArea;
-
     ArrayList<String> nombresArray;
     ArrayList<String> gradosArray;
 
